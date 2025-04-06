@@ -16,12 +16,17 @@ const nextConfig = {
       },
       {
         protocol: "http",
-        hostname: "127.0.0.1",  
+        hostname: "127.0.0.1",
       },
       {
         protocol: "https",
         hostname: "via.placeholder.com",
-      }
+      },
+    ],
+    domains: [
+      "plus.unsplash.com",
+      "images.pexels.com",
+      "encrypted-tbn0.gstatic.com",
     ],
   },
   eslint: {

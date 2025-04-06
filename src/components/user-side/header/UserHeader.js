@@ -14,7 +14,7 @@ const UserHeader = () => {
               src={logo2Img}
               priority={true}
               alt="logo"
-              className="h-9 w-[307px] lg:w-auto md:h-8 sm:h-6 xs:h-5"
+              className="h-[39.6px] w-[337.7px] lg:w-auto md:h-[8.8px] sm:h-[6.6px] xs:h-[5.5px]"
             />
           </Link>
           <div className="flex items-center gap-10  sm:gap-4">
@@ -37,12 +37,11 @@ const UserHeader = () => {
               />
             </Link>
             <div className="flex items-center gap-9">
-
-            <UserHeaderMeetBtn />
-            <button className="inline-flex sm:hidden items-center gap-1 text-white border-2 border-white py-0.5 px-3 rounded hover:text-accent-dark-blue hover:bg-white transition-colors duration-300">
-              <CiChat1 size={23} strokeWidth={1.3} />
-              <span className="sm-text">CHAT</span>
-            </button>
+              <UserHeaderMeetBtn />
+              <button className="inline-flex sm:hidden items-center gap-1 text-white border-2 border-white py-0.5 px-3 rounded hover:text-accent-dark-blue hover:bg-white transition-colors duration-300">
+                <CiChat1 size={23} strokeWidth={1.3} />
+                <span className="sm-text">CHAT</span>
+              </button>
             </div>
 
             <button className="hidden sm:inline text-white">
