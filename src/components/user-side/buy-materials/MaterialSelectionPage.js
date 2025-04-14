@@ -229,7 +229,7 @@ const MaterialSelectionPage = ({ setStep }) => {
                         <span
                           className=" flex flex-col justify-center items-center"
                           key={index}>
-                          <p className=" text-[25px] xl:text-[25px] lg:text-[25px] md:text-[20px] sm:text-[20px] text-light-text">
+                          <p className="text-[22px] xl:text-[25px] lg:text-[25px] md:text-[20px] sm:text-[20px] text-light-text">
                             {value.heading}
                           </p>
                           <span className=" text-light-text text-[15px] xl:text-[25px] lg:text-[25px] md:text-[20px] sm:text-[20px]">
@@ -244,7 +244,7 @@ const MaterialSelectionPage = ({ setStep }) => {
                     <input
                       type="text"
                       placeholder="Search"
-                      className=" text-[20px] w-[300px] h-[52px] rounded-[50px] p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black border border-1 border-black"
+                      className=" text-[20px] w-[240px] h-[42px] rounded-[50px] p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black border border-1 border-black"
                     />
                     <Image
                       src={searchIcon}
@@ -278,12 +278,16 @@ const MaterialSelectionPage = ({ setStep }) => {
                   </div>
                 </div>
               </div>
-              <hr />
-              <div className="bottom-bar"></div>
+              <div className="flex justify-center items-center">
+                <hr className="w-[83%]" />
+                <span className="text-sm pl-[10px]">
+                  FOR BEST OPTION & MORE
+                </span>
+              </div>
             </div>
           </div>
 
-          <div className="Material-contaibner relative flex-1">z
+          <div className="Material-contaibner relative flex-1">
             <div
               className={`left-side absolute h-[80%] top-1/2 transform -translate-y-1/2 rounded-full flex justify-around items-center flex-col w-[58px] hover:min-w-[200px] hover:w-auto hover:rounded-lg border border-1 border-[${borderColor}] bg-[#ffffff] z-10`}>
               {materials?.map((value, index) => {

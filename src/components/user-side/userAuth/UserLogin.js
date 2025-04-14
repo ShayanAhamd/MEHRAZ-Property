@@ -153,20 +153,20 @@ const UserLogin = () => {
       className="relative min-h-screen z-[1]  w-full flex items-center justify-center bg-login bg-no-repeat bg-center bg-cover  ">
       <span
         className=" absolute top-[10%] md:top-[2%] left-[5%] md:left-[3%]"
-        onClick={() => router.back()}>
+        onClick={() => router.push("/")}>
         <Backbutton />
       </span>
 
       <div className="h-full w-full flex justify-center items-center flex-col">
         <div className="p-0 md:p-2 max-w-[950px] m-auto flex gap-6  w-full flex-col">
-          <p className="text-4xl lg:text-3xl md:text-2xl  leading-none text-center text-white">
+          <p className="text-4xl lg:text-3xl md:text-2xl leading-none text-center text-white mt-5">
             <span className="font-bold md:font-semibold">VERIFY </span>
             <span>YOURSELF</span>
           </p>
           {pageState === pageStates.initial ? (
             <div className="login-form-container f-col items-center justify-center">
               {/* phone number input start  */}
-              <form className="max-w-2xl m-auto w-full flex gap-12 md:gap-9 sm:gap-7 flex-col relative  mb-[4rem] md:mb-[3rem] sm:mb-[2rem]">
+              <form className="max-w-2xl m-auto w-full flex gap-12 md:gap-9 sm:gap-7 flex-col relative mb-[1rem] md:mb-[3rem] sm:mb-[2rem] mt-5">
                 <div className="w-full f-col gap-3 md:gap-2">
                   <label
                     className="login-label"
@@ -224,11 +224,11 @@ const UserLogin = () => {
                   )}
                 </div>
               </form>
-              <div className="max-w-3xl m-auto w-full h-[1px] bg-white mb-[1.1rem] "></div>
+              <div className="max-w-3xl m-auto w-full h-[1px] bg-white mb-[1.1rem] mt-2"></div>
               <p class="opacity-70 text-base md:text-sm sm:text-xs text-center uppercase text-white">
                 <span>The number will BE the </span>
                 <span className="font-bold">primary means of contact </span>
-                <span>b/W</span>
+                <span>between</span>{" "}
                 <span className="font-bold">Mehraz &#x26; you.</span>
               </p>
             </div>

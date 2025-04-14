@@ -143,12 +143,12 @@ const ScheduleCarousel = ({ calender }) => {
             <div className=" w-[90%] sm:w-[100%] h-full  rounded-2xl overflow-hidden flex sm:flex-col">
               {val?.map((val2, index2) => (
                 <div
-                  className={`flex-1 sm:w-[100%] h-[100%] sm:h-[14%] sm:flex `}
+                  className={`flex-1 sm:w-[100%] h-[100%] sm:h-[14%] sm:flex flex-col`}
                   key={index}>
                   <div className="bg-black text-[#FFFFFF] text-center text-xl h-[22%] sm:h-[100%] sm:w-[30%] flex justify-center items-center">
                     {val2?.day.slice(0, 3)}
                   </div>
-                  <div className="w-[100%] h-[86%] break-words flex justify-center items-center flex-col sm:flex-row bg-[#EFEFEF] hover:bg-[#989a9c] hover:text-white sm:w-[70%]">
+                  <div className="w-[100%] h-[70%] break-words flex justify-center items-center flex-col sm:flex-row bg-[#EFEFEF] hover:bg-[#989a9c] hover:text-white sm:w-[70%]">
                     <span className=" font-bold">{val2?.date.getDate()}</span>
                     <span className=" font-bold"> {val2.month}</span>
                   </div>

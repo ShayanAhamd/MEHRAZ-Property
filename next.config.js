@@ -26,6 +26,7 @@ const nextConfig = {
     domains: [
       "plus.unsplash.com",
       "images.pexels.com",
+      "s3-alpha-sig.figma.com",
       "encrypted-tbn0.gstatic.com",
     ],
   },

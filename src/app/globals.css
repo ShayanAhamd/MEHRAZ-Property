@@ -317,11 +317,11 @@ input[type="range"]::-webkit-slider-thumb {
   }
 
   .landing-page-title {
-    @apply text-[88px] xl:text-[72px] lg:text-[60px]  md:text-[50px] sm:text-[37px] mb-2 leading-none md:leading-tight;
+    @apply text-[50px] xl:text-[72px] lg:text-[60px]  md:text-[50px] sm:text-[37px] mb-2 leading-none md:leading-tight;
   }
 
   .slogan-container {
-    @apply text-white extra-large-2  px-[22px] lg:px-[16px] md:px-[12px] sm:px-[8px] max-w-[637px] w-full leading-tight py-[5px] lg:py-[4px] md:py-[3px] sm:py-[2px] xs:py-[1px] text-nowrap;
+    @apply text-white text-[25px]  px-[22px] lg:px-[16px] md:px-[12px] sm:px-[8px] max-w-[637px] w-full leading-tight py-[5px] lg:py-[4px] md:py-[3px] sm:py-[2px] xs:py-[1px] text-nowrap;
   }
 
   .slogan-container-pad {
@@ -663,7 +663,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .login-form-container {
-  @apply pt-[4rem] pb-[1.75rem] md:pt-[3rem] md:pb-[1rem] px-2 rounded-[5px]  h-[456px] md:h-[400px] sm:h-[380px] xs:h-[329px] bg-secondary-cta;
+  @apply pt-[1rem] pb-[1.75rem] md:pt-[3rem] md:pb-[1rem] px-2 rounded-[5px]  h-[380px] md:h-[400px] sm:h-[380px] xs:h-[329px] bg-secondary-cta;
 }
 .login-label {
   @apply text-xl sm:text-base leading-none font-light text-left uppercase text-[#fff3e4];
@@ -797,6 +797,6 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .scrollbar-hide {
-  -ms-overflow-style: none; 
+  -ms-overflow-style: none;
   scrollbar-width: none;
 }

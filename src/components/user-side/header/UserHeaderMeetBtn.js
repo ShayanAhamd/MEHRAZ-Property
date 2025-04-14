@@ -31,7 +31,11 @@ const UserHeaderMeetBtn = () => {
         <button
           className="text-white inline-flex items-center gap-3 md:gap-2 xs:gap-1"
           onClick={toggleDropdown}>
-          <Image src={meetIcon} alt="meet" className="w-7 h-auto md:w-6 sm:w-5" />
+          <Image
+            src={meetIcon}
+            alt="meet"
+            className="w-7 h-auto md:w-6 sm:w-5"
+          />
           <span className="base-text block sm:hidden">MEET</span>
           <FaChevronDown
             className={`w-5 h-auto transition-transform duration-300 ${
@@ -48,7 +52,7 @@ const UserHeaderMeetBtn = () => {
           <div
             className={`overflow-hidden uppercase w-max flex flex-col text-xl md:text-base sm:text-sm text-accent-black`}>
             <Link
-              href="/"
+              href="/schedule-call"
               className="inline-flex items-center gap-8 md:gap-6 sm:gap-4 px-4 md:px-2 py-2 md:py-1 m-1">
               <Image
                 src={phoneIcon}
@@ -58,7 +62,7 @@ const UserHeaderMeetBtn = () => {
               <span className="text-end">schedule a call</span>
             </Link>
             <Link
-              href="/"
+              href="/schedule-meetup"
               className="inline-flex items-center justify-between gap-8 md:gap-6 sm:gap-4 px-4 md:px-2 py-2 md:py-1 m-1">
               <Image
                 src={meetupIcon}

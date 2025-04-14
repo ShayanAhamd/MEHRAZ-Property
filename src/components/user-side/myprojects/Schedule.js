@@ -60,7 +60,7 @@ const Schedule = ({ setStep }) => {
         <FaChevronLeft size={24} className="w-6 h-auto sm:w-4" />
       </div> */}
       <div className=" flex-grow-1 flex items-center flex-col w-[95%] sm:w-[90%]">
-        <h1 className=" font-bold text-2xl sm:text-xl">SCHEDULE A CALL</h1>
+        <h1 className=" font-bold text-2xl sm:text-xl mt-5">SCHEDULE A CALL</h1>
         <hr className=" w-[50%] sm:w-[100%] my-3 sm:my-2"></hr>
         <h1 className=" font-bold text-xl sm:text-base">SELECT PREFFERD DAY</h1>
         <div className="carousel-parent w-full ">

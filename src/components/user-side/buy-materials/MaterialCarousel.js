@@ -43,7 +43,7 @@ const MaterialCarousel = () => {
   return (
     <DesignCarouselMain slidesCount={1}>
       <div className="w-full h-auto rounded-xl overflow-hidden flex justify-center">
-        <div className="w-[90%] sm:w-[85%] p-2 h-auto rounded-2xl flex flex-wrap gap-3 justify-center">
+        <div className="w-[100%] sm:w-[85%] p-2 h-auto rounded-2xl flex flex-wrap gap-3 justify-center">
           {materials.map((material, index) => (
             <MaterialCard key={index} material={material} />
           ))}

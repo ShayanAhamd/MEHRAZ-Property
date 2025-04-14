@@ -25,7 +25,7 @@ const Screen3 = ({ setStep }) => {
           ${pathname == "/buy-materials" ? "h-[100%]" : "h-[50vh]"}
            w-[70%] md:w-[80%] sm:w-[100%] flex justify-center items-center  flex-col`}>
             <div className="w-full">
-              <div className=" flex justify-around items-center">
+              <div className=" flex justify-center items-center">
                 <Image
                   src={buyMaterialLightIcon}
                   priority={true}
@@ -55,14 +55,14 @@ const Screen3 = ({ setStep }) => {
                 <div className="w-[40%] h-[1px] bg-white"></div>
               </div>
               {/* carousel of screen */}
-              <div className="w-full  min-h-36 h-auto border border-white rounded-3xl flex justify-center  items-center">
+              <div className="w-full min-h-36 h-auto border border-white rounded-3xl flex justify-center  items-center">
                 <MaterialCarousel />
                 {/* <Image src={landpic} width={100} height={100} alt="land pic" /> */}
               </div>
               <div className="w-full text-center">
                 <button
                   type="button"
-                  className={`py-2.5 px-8 sm:px-5  mb-2 text-sm text-black  focus:outline-none bg-[white]
+                  className={`py-2.5 px-8 sm:px-5 mb-6 text-sm text-black  focus:outline-none bg-[white]
                   border border-white hover:text-white focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-800 dark:bg-gray-800 dark:text-gray-800 dark:border-gray-800 dark:hover:text-gray-800 dark:hover:bg-gray-800 hover:bg-transparent hover:border-white font-bold mx-auto mt-4`}
                   onClick={() => setStep(prev => prev + 1)}>
                   GO

@@ -5,6 +5,7 @@ import { FaRegHeart, FaRegComment } from "react-icons/fa6";
 import Link from "next/link";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import Image from "next/image";
+import { UButton } from "@/components";
 
 const Blog = () => {
   const scrollRef = useRef(null);
@@ -81,9 +82,18 @@ const Blog = () => {
           Your Life
         </p>
         <Link href="/addBlog">
-          <button className="block w-auto uppercase rounded bg-gradient-to-b from-yellow-400 to-yellow-500 shadow-lg px-16 py-4 mt-5 text-xl font-medium text-black hover:from-yellow-500 hover:to-yellow-600">
+          {/* <button className="block w-auto uppercase rounded bg-gradient-to-b from-yellow-400 to-yellow-500 shadow-lg px-16 py-4 mt-5 text-xl font-medium text-black hover:from-yellow-500 hover:to-yellow-600">
             EXPLORE BLOGS
-          </button>
+          </button> */}
+          <UButton
+            text={
+              <span className=" flex justify-around items-center">
+                <span>EXPLORE</span>
+                <span className="font-bold ml-[2px]">BLOGS</span>
+              </span>
+            }
+            className="px-[40px] py-[20px] hover:text-black mt-4"
+          />
         </Link>
         <hr className="border-b-2 border-white w-1/2 my-6" />
 

@@ -43,7 +43,7 @@ export default async function UserPage() {
   const landingImage = await getBannerImage("landing-image.png");
 
   return (
-    <div className="relative w-full container py-14 lg:py-10 md:py-6 sm:py-4 f-col">
+    <div className="relative w-full container py-4 lg:py-10 md:py-6 sm:py-4 f-col pt-5">
       {/* top section start */}
       <div className="flex flex-row sm:flex-col-reverse justify-between md:items-start sm:justify-start items-center text-3xl lg:text-2xl md:text-lg sm:text-base uppercase w-full gap-0 md:gap-1">
         <h3 className=" text-[#6C6C6C] w-fit">
@@ -135,13 +135,13 @@ export default async function UserPage() {
 
         {/* right side start */}
         <div className="pt-3 lg:mt-5 bg-dull/0 max-w-[511px] relative w-full rounded-2xl shadow-btn-shadow-2  border-2 border-accent-1-extra-light">
-          <div className="w-full h-full flex flex-col items-start px-1 pt-6 lg:pt-5 md:pt-4 sm:pt-2  rounded-[20px] lg:rounded-[16px] md:rounded-[12px] sm:rounded-[8px] ">
+          <div className="w-full h-full flex flex-col items-start px-1 pt-2 lg:pt-5 md:pt-4 sm:pt-2  rounded-[20px] lg:rounded-[16px] md:rounded-[12px] sm:rounded-[8px] ">
             <Link
               href="/"
               className="text-large text-accent-black uppercase self-center">
               design & build<b>dreams</b>
             </Link>
-            <div className="f-col py-[30px] lg:py-[28px] md:py-[16px] sm:py-[8px] !pb-16 sm:!pb-10 w-full gap-2">
+            <div className="f-col py-[15px] lg:py-[28px] md:py-[16px] sm:py-[8px] !pb-6 sm:!pb-10 w-full gap-2">
               <LandingCTAButton
                 text={
                   <span>

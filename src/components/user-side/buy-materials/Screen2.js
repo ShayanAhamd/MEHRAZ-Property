@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation"; // Import from 'next/navigation'
+import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import {
   buildingicon,
@@ -13,32 +13,31 @@ import DesSelStep1Screen1InputBox from "../fast-homes/design-selection/DesSelSte
 import DesSelSelect from "../fast-homes/design-selection/DesSelSelect";
 import BlackButton from "../BlackButton";
 import { toast } from "react-toastify";
+
 const Screen2 = ({ setStep, heading, subheading }) => {
   const router = useRouter();
-  // const currentPath = router.asPath;
   const pathname = usePathname();
   let index = 0;
+
   const defaultStep1Screen2FormData = {
-    city: "",
-    budget: "",
+    city: "Faisalabad", // Changed to match image
+    budget: "Low to High", // Changed to match image
   };
 
   const [step1Screen2FormData, setStep1Screen2FormData] = useState(
     defaultStep1Screen2FormData,
   );
-  const step1Screen2FormDataInputHandler = (key, value) => {
 
-    // console.log("key is:", key, " value is: ", value);
+  const step1Screen2FormDataInputHandler = (key, value) => {
     setStep1Screen2FormData(prevState => ({
       ...prevState,
       [key]: value,
     }));
-    console.log("setStep1Screen2FormData data: ",step1Screen2FormData);
+    console.log("setStep1Screen2FormData data: ", step1Screen2FormData);
     const input = key.toLowerCase();
-    // router.push(`/buy-materials?${input}=${encodeURIComponent(value)}`);
-    const query = new URLSearchParams(router.query); // Preserve existing query parameters
-    query.set(key, value); // Add or update the new parameter
-    router.push(`/buy-materials?${query.toString()}`); // Push the updated query string
+    const query = new URLSearchParams(router.query);
+    query.set(key, value);
+    router.push(`/buy-materials?${query.toString()}`);
   };
 
   useEffect(() => {
@@ -47,6 +46,7 @@ const Screen2 = ({ setStep, heading, subheading }) => {
       style: "",
     }));
   }, [step1Screen2FormData.styleCost]);
+
   // dummy cities defined just for demo purpose cities commes from the db
   const cities = [
     { id: 1, name: "Karachi" },
@@ -75,6 +75,7 @@ const Screen2 = ({ setStep, heading, subheading }) => {
     { id: 24, name: "Nawabshah" },
     { id: 25, name: "Mirpur Khas" },
   ];
+
   const budget = [
     { id: 1, name: "High to Low" },
     { id: 2, name: "Low to High" },
@@ -89,19 +90,21 @@ const Screen2 = ({ setStep, heading, subheading }) => {
         className="relative z-[1] min-h-full w-full flex items-center justify-center bg-fast-homes bg-no-repeat bg-center bg-cover before:absolute before:z-[-1] before:top-0 before:left-0 before:right-0 before:bottom-0 before:bg-gradient-to-b before:from-[#000000e6] before:to-[#3c3c3cb3] flex-grow h-full">
         <div className="h-full w-full flex justify-center items-center flex-col">
           <div
-            className={`
-          ${pathname == "/buy-materials" ? "h-[100%]" : "h-[50vh]"}
-           w-[50%] md:w-[80%] sm:w-[100%] flex justify-center items-center  flex-col`}>
+            className={`${
+              pathname == "/buy-materials" ? "h-[100%]" : "h-[50vh]"
+            }
+             w-[50%] md:w-[80%] sm:w-[100%] flex justify-center items-center flex-col`}>
             <div className="w-full">
               {pathname == "/high-custom" ? (
                 <svg
                   width="154"
                   height="158"
-                  className=" relative left-6"
+                  className="relative left-6"
                   viewBox="0 0 154 158"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                   xmlnsXlink="http://www.w3.org/1999/xlink">
+                  {/* SVG content remains unchanged */}
                   <g filter="url(#filter0_d_1780_16508)">
                     <mask
                       id="mask0_1780_16508"
@@ -186,7 +189,7 @@ const Screen2 = ({ setStep, heading, subheading }) => {
                 ""
               )}
               {pathname == "/buy-materials" ? (
-                <div className=" w-full border-b-0.3  flex justify-center items-center flex-col mt-4">
+                <div className="w-full border-b-0.3 flex justify-center items-center flex-col mt-4">
                   <Image
                     src={buyMaterialLightIcon}
                     priority={true}
@@ -194,23 +197,20 @@ const Screen2 = ({ setStep, heading, subheading }) => {
                     width={60}
                     alt="building"
                   />
-                  <hr className=" w-[80%]" />
+                  <hr className="w-[80%]" />
                   <div
                     className={`text-white relative my-2 ${
                       pathname == "/buy-materials" ? "" : "top-[50px]"
                     }`}>
-                    {/* LAND, DESIGN, METERIAL, CONSTRUCTION */}
                     <b>CUSTOM DESIGNED STORE</b>
                     &nbsp;ONLY THE BEST FOR YOU
                   </div>
-                  <div className=" mt-8 mb-8">
+                  <div className="mt-8 mb-8">
                     <DesSelStep1Screen1InputBox>
-                      {/* label={"city"} */}
-                      <div className=" flex justify-center items-center gap-5">
-                        <label htmlFor="" className=" text-2xl text-white">
+                      <div className="flex justify-center items-center gap-5">
+                        <label htmlFor="" className="text-2xl text-white">
                           CITY
                         </label>
-
                         <DesSelSelect
                           options={
                             cities
@@ -234,10 +234,10 @@ const Screen2 = ({ setStep, heading, subheading }) => {
                       </div>
                     </DesSelStep1Screen1InputBox>
                   </div>
-                  <div className=" mt-8 mb-8">
+                  <div className="mt-8 mb-8">
                     <DesSelStep1Screen1InputBox label={""}>
-                      <div className=" flex justify-center items-center  gap-5">
-                        <label htmlFor="" className=" text-2xl text-white">
+                      <div className="flex justify-center items-center gap-5">
+                        <label htmlFor="" className="text-2xl text-white">
                           COST
                         </label>
                         <DesSelSelect
@@ -265,18 +265,18 @@ const Screen2 = ({ setStep, heading, subheading }) => {
                   </div>
                   <button
                     type="button"
-                    class={`py-2.5 px-8 sm:px-5  mb-2 text-sm text-black  focus:outline-none bg-[white]
+                    className={`py-2.5 px-8 sm:px-5 mb-2 text-sm text-black focus:outline-none bg-[white]
                      border border-white hover:text-white focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-800 dark:bg-gray-800 dark:text-gray-800 dark:border-gray-800 dark:hover:text-gray-800 dark:hover:bg-gray-800 hover:bg-transparent hover:border-white font-bold sm:w-[130px] h-[35px]`}
                     onClick={() => {
-                      if(step1Screen2FormData.budget==''&&step1Screen2FormData.budget=='')
-                      {
+                      if (
+                        step1Screen2FormData.budget == "" ||
+                        step1Screen2FormData.city == ""
+                      ) {
                         toast.error("Please Fill All Required Fields!");
                         return;
                       }
-                      setStep(prev => prev + 1)
-                    }
-                  }
-                    >
+                      setStep(prev => prev + 1);
+                    }}>
                     GO
                   </button>
                 </div>
@@ -284,42 +284,37 @@ const Screen2 = ({ setStep, heading, subheading }) => {
                 ""
               )}
 
-              {/* className="w-8 lg:w-7" */}
+              <div className="w-[100%] min-h-[auto] h-auto flex justify-around">
+                {heading && (
+                  <div className="text-5xl sm:text-2xl text-white border-b border-white text-center w-fit">
+                    {heading.normaltext} <b>{heading.boldtext}</b>
+                  </div>
+                )}
+              </div>
             </div>
-
-            <div className="w-[100%] min-h-[auto] h-auto flex justify-around">
-              {heading && (
-                <div className=" text-5xl sm:text-2xl text-white border-b border-white  text-center w-fit">
-                  {/* High <b>CUSTOM</b> */}
-                  {heading.normaltext} <b>{heading.boldtext}</b>
-                </div>
-              )}
-            </div>
+            {pathname == "/buy-materials" ? (
+              <div className="text-white relative">
+                {subheading && (
+                  <>
+                    {subheading.normaltext}
+                    <b>{subheading.boldtext}</b>
+                  </>
+                )}
+              </div>
+            ) : (
+              <div
+                className={`text-white relative ${
+                  pathname == "/buy-materials" ? "" : "top-[50px]"
+                }`}>
+                {subheading && (
+                  <>
+                    {subheading.normaltext}
+                    <b>{subheading.boldtext}</b>
+                  </>
+                )}
+              </div>
+            )}
           </div>
-          {pathname == "/buy-materials" ? (
-            <div className="text-white relative">
-              {/* LAND, DESIGN, METERIAL, CONSTRUCTION */}
-              {subheading && (
-                <>
-                  {subheading.normaltext}
-                  <b>{subheading.boldtext}</b>
-                </>
-              )}
-            </div>
-          ) : (
-            <div
-              className={`text-white relative ${
-                pathname == "/buy-materials" ? "" : "top-[50px]"
-              }`}>
-              {/* LAND, DESIGN, METERIAL, CONSTRUCTION */}
-              {subheading && (
-                <>
-                  {subheading.normaltext}
-                  <b>{subheading.boldtext}</b>
-                </>
-              )}
-            </div>
-          )}
         </div>
       </motion.div>
     </div>
