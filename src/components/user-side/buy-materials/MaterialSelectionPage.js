@@ -147,6 +147,8 @@ const MaterialSelectionPage = ({ setStep }) => {
   const [design, setDesign] = useState(null);
   const [checkedItems, setCheckedItems] = useState([]);
   const [selectedOption, setSelectedOption] = useState(0);
+  const [selectedMaterial, setSelectedMaterial] = useState(null);
+
   // numbers for testing
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const fetchDesignData = async () => {
@@ -290,12 +292,12 @@ const MaterialSelectionPage = ({ setStep }) => {
 
           <div className="Material-contaibner relative flex-1">
             <div
-              className={`left-side absolute h-[80%] top-1/2 transform -translate-y-1/2 rounded-full flex justify-around items-center flex-col w-[58px] hover:min-w-[200px] hover:w-auto hover:rounded-lg border border-1 border-[${borderColor}] bg-[#ffffff] z-10`}>
+              className={`left-side absolute h-[80%] top-1/2 transform -translate-y-1/2 rounded-full flex justify-around items-center flex-col w-[58px] border border-1 border-[${borderColor}] bg-[#ffffff] z-10`}>
               {materials?.map((value, index) => {
                 return (
                   <div
                     key={index}
-                    className={`rounded-full bg-bg-dull border border-1 border-[${borderColor}] w-full overflow-hidden flex`}>
+                    className={`group rounded-full bg-bg-dull border border-1 border-[${borderColor}] w-full overflow-hidden flex hover:min-w-[200px] hover:w-auto hover:rounded-lg transition-all duration-300`}>
                     <Image
                       src={value.icon}
                       alt={value.alt}
@@ -303,9 +305,13 @@ const MaterialSelectionPage = ({ setStep }) => {
                       width={100}
                       className="h-[55px] w-[55px] p-1"
                     />
-                    <div className="flex flex-col justify-center items-center">
-                      <p className="text-sm font-medium">{value?.heading}</p>
-                      <span className="text-xxs">{value?.content}</span>
+                    <div className="flex flex-col justify-center items-center pr-2">
+                      <p className="text-sm font-medium whitespace-nowrap">
+                        {value?.heading}
+                      </p>
+                      <span className="text-xxs whitespace-nowrap">
+                        {value?.content}
+                      </span>
                     </div>
                   </div>
                 );
@@ -332,64 +338,71 @@ const MaterialSelectionPage = ({ setStep }) => {
 
               <div className="h-full w-full md:order-first sm:order-first order-last">
                 <DesignCarouselMain slidesCount={design?.images?.length}>
-                  {(design?.images ?? []).map((value, index) => {
+                  {(design?.images ?? []).map((_, index) => {
                     return (
                       <div
                         key={index}
-                        className="h-[50vh] min-h-[400px] max-h-[auto] lg:h-[40vh] sm:h-[30vh] xs:h-[25vh] rounded-xl  overflow-hidden !flex justify-center items-start flex-wrap border borde-1">
-                        {numbers.map((value, index2) => (
-                          <div
-                            key={index2}
-                            className="w-[150px] h-[150px] p-2 pb-4 rounded-lg cursor-pointer"
-                            onClick={() => {
-                              const materialId = design.materials[index].id; // Use the unique identifier for the material
-                              if (checkedItems.includes(materialId)) {
-                                setCheckedItems(
-                                  checkedItems.filter(id => id !== materialId),
-                                );
-                              } else {
-                                setCheckedItems([...checkedItems, materialId]);
-                              }
-                            }}>
-                            <div className="w-full h-20 rounded-md overflow-hidden sm:h-20 relative">
-                              <Image
-                                src={residentialImage}
-                                width={100}
-                                height={100}
-                                alt={`Material ${value}`} // Use the number in the alt text
-                                className="w-full h-full object-cover sm:h-[100px]"
-                              />
-                              <Image
-                                src={
-                                  checkedItems.includes(value.id)
-                                    ? tickIconChecked
-                                    : tickIcon
+                        className="h-[50vh] min-h-[400px] max-h-[auto] lg:h-[40vh] sm:h-[30vh] xs:h-[25vh] rounded-xl overflow-hidden !flex justify-center items-start flex-wrap border">
+                        {numbers.map((value, index2) => {
+                          const material = design.materials[index]; // Assuming materials are in the same order
+                          const materialId = material?.id ?? index2;
+
+                          return (
+                            <div
+                              key={index2}
+                              className="w-[150px] h-[150px] p-2 pb-4 rounded-lg cursor-pointer mb-5"
+                              onClick={() => {
+                                if (checkedItems.includes(materialId)) {
+                                  setCheckedItems(
+                                    checkedItems.filter(
+                                      id => id !== materialId,
+                                    ),
+                                  );
+                                } else {
+                                  setCheckedItems([
+                                    ...checkedItems,
+                                    materialId,
+                                  ]);
                                 }
-                                width={35}
-                                height={35}
-                                alt={`Material ${value}`}
-                                className={`absolute top-[3px] right-0 
-                                ${
-                                  checkedItems.includes(value.id)
-                                    ? "bg-[#21254A] bg-opacity-100 text-transparent px-[7px] py-[7px] rounded-[20px]"
-                                    : ""
-                                }`}
-                              />
-                            </div>
-                            <div className="bg-[#EFEFEF] text-sm text-[#2f2f2f] uppercase">
-                              <div className="p-2 pb-0">
-                                <h4 className="font-bold">Material {value}</h4>
-                                <h4>Vendor {value}</h4>{" "}
-                                {/* Placeholder content */}
+                              }}>
+                              <div className="w-full h-20 sm:h-20 relative rounded-md overflow-hidden">
+                                <Image
+                                  src={residentialImage}
+                                  width={100}
+                                  height={100}
+                                  alt={`Material ${value}`}
+                                  className="w-full h-full object-cover sm:h-[100px]"
+                                />
+                                <Image
+                                  src={
+                                    checkedItems.includes(materialId)
+                                      ? tickIconChecked
+                                      : tickIcon
+                                  }
+                                  width={35}
+                                  height={35}
+                                  alt="Tick icon"
+                                  className={`absolute top-[3px] right-0 ${
+                                    checkedItems.includes(materialId)
+                                      ? "bg-[#21254A] bg-opacity-100 text-transparent px-[7px] py-[7px] rounded-[20px]"
+                                      : ""
+                                  }`}
+                                />
                               </div>
-                              <h5 className="border bg-white border-[#2f2f2f] rounded-full px-1 py-0.5 text-center text-[#2f2f2f] text-xs translate-y-1/2">
-                                Price ${value * 10}{" "}
-                                {/* Example price calculation */}
-                              </h5>
+                              <div className="bg-[#EFEFEF] text-sm text-[#2f2f2f] uppercase">
+                                <div className="p-2 pb-0">
+                                  <h4 className="font-bold">
+                                    Material {value}
+                                  </h4>
+                                  <h4>Vendor {value}</h4>
+                                </div>
+                                <h5 className="border bg-white border-[#2f2f2f] rounded-full px-1 py-0.5 text-center text-xs translate-y-1/2">
+                                  Price ${value * 10}
+                                </h5>
+                              </div>
                             </div>
-                          </div>
-                        ))}
-                        {/* </div> */}
+                          );
+                        })}
                       </div>
                     );
                   })}
