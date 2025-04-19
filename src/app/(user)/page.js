@@ -199,14 +199,30 @@ export default async function UserPage() {
 
       {/* bottom section start */}
       <div className="flex flex-row gap-2 pt-4 md:flex-col justify-between items-end">
-        <div className="max-w-[650px] w-full h-[140px] block sm:hidden">
-          <Image
-            src={landingImage}
-            alt="landing image"
-            className="w-full h-full"
-            width={650}
-            height={140}
-          />
+        <div className="max-w-[650px] w-full h-[140px] block sm:hidden relative overflow-hidden rounded-lg">
+          <div className="absolute top-0 left-0 w-full h-full animate-slideImages">
+            <Image
+              src="https://s3-alpha-sig.figma.com/img/3d78/d82a/75da75a1a9bb0aa2a392bce6c4d6f035?Expires=1745798400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=WqpHXTioa8zG8bM2naTG~EuBErOLeVhjQC0nl2ERXrYP3ikh2IvV~1CwSDsoqMxWxaasUMqXjyGYSMnQpE3UApo5BXAJvut-8eKaSeQrDZZztvjeb4ZgDhccIR1ZS0P4JnJ-yM1bwawmkdsYOfiPMlQ4-O0to-kqP7tI7IayCXAgtiIqTVW3Y25MMbUEjmrLY4cx6BaLbxPwJ6eFe1sgTMMrgrG4AhnKFcufIacYAegBhlLtrCDFXVuOIq1B9qavXjYyTDqb-qBpzORMlKdFwSO21FXvHtME0LBjOtAoD0QIBy6SmtL~BjiTrSj1K08P68mafw3-EzKvhKXTgWQoZw__"
+              alt="Landing 1"
+              width={650}
+              height={140}
+              className="w-full h-full absolute top-0 left-0 opacity-0 image-fade fade-1"
+            />
+            <Image
+              src="https://s3-alpha-sig.figma.com/img/93d9/b029/072e242e7fb6c24e0a6c001d8993336c?Expires=1745798400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=n5iaC6Ynotenqto47VlWKxKtIOMfNZmMXXK7UaY7o1Y-ipca~1qZUJB3ncVvyJjiibwHVvjVBdkdQ7nWSKgVhgu9~v0u36PeMxFNtXqIZUeojxrq6AygzAUEHWrYTKy0kYl63xn3fiJlVd99ms9YFFtoA8VaOjnQ8f8smsaA6qiqxRXOm4DQhAZoY7vNspKjuE5Tz9TtsB1CCqQMQc5ID~GODcXdR5P001A86gyvAPMew3yC9yMy1SP3-Drg3y1Hz7Tc1i0Q5~gOBFFbAVFJnOv8sQJb6yYq12ruxCjehA3EuLSiVtDvxzgtVgE7uPx56enqL532FLZCidG5RNf8zg__"
+              alt="Landing 2"
+              width={650}
+              height={140}
+              className="w-full h-full absolute top-0 left-0 opacity-0 image-fade fade-2"
+            />
+            <Image
+              src="https://s3-alpha-sig.figma.com/img/d1d9/7b82/76de44fcfb026298838899878db7f848?Expires=1745798400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=VFiBnW0I8pNbxyZQlQB-ZbUHWAbxt0sGs~cFmm3TdgJq28kgLb42JMdqJlbq~3FPjodJV9r7s-Ly66nf~RmiFZspjbTDhJ5jK33tZvqJqDWWqIGu2N8nQufoYxtokAKpWDffhjFOpDI6m4ENXQZ7En0fNv1m7OeSLGS4iI7H-l5MUuibW3qOSK3EbEx6fuB9PZItlVZe-p8fUIqxK6B1JCQivjLdA6yq7vBWK1wlMspSWZoxFKz5WDrNXkuPnTEV9lT3eFxlvBcu-ZXBbqtgYOsX7KqXaw3pqfvNDCJBWLE5Ya7afd3fcn8SHTA8HIz-z38LjTq~gLAqyMrX7lfVgQ__"
+              alt="Landing 3"
+              width={650}
+              height={140}
+              className="w-full h-full absolute top-0 left-0 opacity-0 image-fade fade-3"
+            />
+          </div>
         </div>
 
         <div className="f-col items-end  sm:items-start w-full ">

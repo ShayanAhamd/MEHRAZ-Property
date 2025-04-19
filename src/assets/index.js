@@ -54,10 +54,10 @@ export { default as shareGrayFilledIcon } from "./icons/user-fast-homes/share-gr
 export { default as circleCheckIcon } from "./icons/user-fast-homes/circle-check.svg";
 export { default as SavedIcon } from "./icons/saved_icon.svg";
 export { default as tour360icon } from "./icons/user-projects/360-tour.png";
-export {default as chatIcon} from "./icons/chat.svg"
-export {default as phoneSvg} from "./icons/admin/phone.svg"
-export {default as teamSvg} from "./icons/admin/team.png";
-export {default as hamburgerIcon} from "./icons/hamburger.png"
+export { default as chatIcon } from "./icons/chat.svg";
+export { default as phoneSvg } from "./icons/admin/phone.svg";
+export { default as teamSvg } from "./icons/admin/team.png";
+export { default as hamburgerIcon } from "./icons/hamburger.png";
 // Images
 export { default as logo1Img } from "./images/logo1.svg";
 export { default as logo2Img } from "./images/logo2.svg";
@@ -85,7 +85,6 @@ export { default as tiles } from "./images/user-side/tiles.svg";
 // payment Icons
 export { default as bankIcon } from "./icons/payment/bank.svg";
 
-
 // high custom icon
 export { default as customicon } from "./icons/custom.svg";
 export { default as custom2 } from "./icons/CUSTOM2.svg";
@@ -99,6 +98,7 @@ export { default as buildingicon } from "./icons/building.svg";
 export { default as blackbuildingicon } from "./icons/building2.svg";
 // buy Materials
 export { default as tickIcon } from "./icons/buy-materials/tickIcon.svg";
+export { default as tickIconChecked } from "./icons/buy-materials/tickIconChecked.png";
 // this 4 icon are white color
 // land pic
 export { default as landpic } from "./images/user-side/landpic.png";
@@ -120,10 +120,8 @@ export { default as blackFinish } from "./icons/blackfinsh.svg";
 export { default as blackCouch } from "./icons/blackcouch.svg";
 export { default as blackLeaf } from "./icons/blackleaf.svg";
 
+//admin icons
+export { default as adminChatArrowIcon } from "./icons/admin/arrow.svg";
+export { default as mediaImg } from "./icons/admin/media.png";
 
-
-//admin icons 
-export {default as adminChatArrowIcon} from "./icons/admin/arrow.svg"
-export {default as mediaImg} from "./icons/admin/media.png"
-
-export {default as profileIcon} from "./icons/admin/profile.svg"
+export { default as profileIcon } from "./icons/admin/profile.svg";

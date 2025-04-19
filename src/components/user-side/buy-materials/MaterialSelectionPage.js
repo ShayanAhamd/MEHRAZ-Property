@@ -12,13 +12,13 @@ import {
 } from "@/assets";
 import Backbutton from "@/components/Backbutton";
 import Image from "next/image";
-import { searchIcon, messageIcon, tickIcon } from "@/assets";
+import { searchIcon, messageIcon, tickIcon, tickIconChecked } from "@/assets";
 import UButton from "../UButton";
 import DesignCarouselSmall from "../designs/DesignCarouselSmall";
 import DesignCarouselMain from "../designs/DesignCarouselMain";
 import BlackButton from "../BlackButton";
+import { FaChevronRight } from "react-icons/fa6";
 
-// temp data
 const defaultDesign = {
   id: "hajfkajlj214141",
   title: "Design Title",
@@ -145,6 +145,7 @@ const defaultDesign = {
 const MaterialSelectionPage = ({ setStep }) => {
   const borderColor = "#00000033";
   const [design, setDesign] = useState(null);
+  const [checkedItems, setCheckedItems] = useState([]);
   const [selectedOption, setSelectedOption] = useState(0);
   // numbers for testing
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -211,8 +212,8 @@ const MaterialSelectionPage = ({ setStep }) => {
                 <Backbutton />
               </span>
             </div>
-            <div className=" right-side">
-              <div className=" upper-bar flex justify-center items-center">
+            <div className="right-side">
+              <div className="upper-bar flex justify-center items-center">
                 <span>
                   <Image
                     src={buyMaterialDarkIcon}
@@ -227,12 +228,12 @@ const MaterialSelectionPage = ({ setStep }) => {
                     return (
                       <>
                         <span
-                          className=" flex flex-col justify-center items-center"
+                          className="flex flex-col justify-center items-center"
                           key={index}>
                           <p className="text-[22px] xl:text-[25px] lg:text-[25px] md:text-[20px] sm:text-[20px] text-light-text">
                             {value.heading}
                           </p>
-                          <span className=" text-light-text text-[15px] xl:text-[25px] lg:text-[25px] md:text-[20px] sm:text-[20px]">
+                          <span className="text-light-text text-[15px] xl:text-[25px] lg:text-[25px] md:text-[20px] sm:text-[20px]">
                             {value.subheading}
                           </span>
                         </span>
@@ -240,11 +241,11 @@ const MaterialSelectionPage = ({ setStep }) => {
                       </>
                     );
                   })}
-                  <div className=" relative">
+                  <div className="relative">
                     <input
                       type="text"
                       placeholder="Search"
-                      className=" text-[20px] w-[240px] h-[42px] rounded-[50px] p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black border border-1 border-black"
+                      className="text-[20px] w-[240px] h-[42px] rounded-[50px] p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black border border-1 border-black"
                     />
                     <Image
                       src={searchIcon}
@@ -253,7 +254,7 @@ const MaterialSelectionPage = ({ setStep }) => {
                     />
                   </div>
                   <div className="flex justify-center items-center gap-2">
-                    <button class="w-[137px] h-[44px]  rounded-[6px] opacity-90 text-black border border-1 border-black flex justify-start items-center">
+                    <button className="w-[137px] h-[44px] rounded-[6px] opacity-90 text-black border border-1 border-black flex justify-start items-center">
                       <Image
                         src={boyIcon}
                         alt="boy icon here"
@@ -263,7 +264,7 @@ const MaterialSelectionPage = ({ setStep }) => {
                     </button>
                     <UButton
                       text={
-                        <span className=" flex justify-around items-center">
+                        <span className="flex justify-around items-center">
                           <Image
                             src={messageIcon}
                             className="mr-[10px]"
@@ -293,26 +294,45 @@ const MaterialSelectionPage = ({ setStep }) => {
               {materials?.map((value, index) => {
                 return (
                   <div
+                    key={index}
                     className={`rounded-full bg-bg-dull border border-1 border-[${borderColor}] w-full overflow-hidden flex`}>
                     <Image
                       src={value.icon}
                       alt={value.alt}
                       height={100}
                       width={100}
-                      className={`h-[55px] w-[55px] p-1`}
+                      className="h-[55px] w-[55px] p-1"
                     />
                     <div className="flex flex-col justify-center items-center">
-                      <p className=" text-sm font-medium">{value?.heading}</p>
-                      <span className=" text-xxs">{value?.content}</span>
+                      <p className="text-sm font-medium">{value?.heading}</p>
+                      <span className="text-xxs">{value?.content}</span>
                     </div>
                   </div>
                 );
               })}
             </div>
+
             <div className="right-carousel sm:w-full w-[90%] ml-auto ">
+              {/* TABS START */}
+              <div className="flex justify-center items-center overflow-x-auto no-scrollbar py-0 gap-6 px-2">
+                {["All(9)", "Trees(9)", "Trees(9)", "Trees(9)"].map(
+                  (tab, idx) => (
+                    <button
+                      key={idx}
+                      className="bg-[#323232] whitespace-nowrap border border-black text-white rounded-full px-12 py-2 text-sm">
+                      {tab}
+                    </button>
+                  ),
+                )}
+                <div className="bg-[#EFEFEF] p-3 xl:p-3 mx-0 w-[40px] h-[40px] sm:h-[40px] sm:w-[40px] flex justify-center items-center rounded-full shadow-btn sm:top-14 sm:left-1 sm:z-10 my-0 md:left-1 md:z-10 cursor-pointer mb-2">
+                  <FaChevronRight size={24} className="w-6 h-auto sm:w-4" />
+                </div>
+              </div>
+              {/* TABS END */}
+
               <div className="h-full w-full md:order-first sm:order-first order-last">
                 <DesignCarouselMain slidesCount={design?.images?.length}>
-                  {design?.images.map((value, index) => {
+                  {(design?.images ?? []).map((value, index) => {
                     return (
                       <div
                         key={index}
@@ -320,7 +340,17 @@ const MaterialSelectionPage = ({ setStep }) => {
                         {numbers.map((value, index2) => (
                           <div
                             key={index2}
-                            className="w-[150px] h-[150px] p-2 pb-4 rounded-lg">
+                            className="w-[150px] h-[150px] p-2 pb-4 rounded-lg cursor-pointer"
+                            onClick={() => {
+                              const materialId = design.materials[index].id; // Use the unique identifier for the material
+                              if (checkedItems.includes(materialId)) {
+                                setCheckedItems(
+                                  checkedItems.filter(id => id !== materialId),
+                                );
+                              } else {
+                                setCheckedItems([...checkedItems, materialId]);
+                              }
+                            }}>
                             <div className="w-full h-20 rounded-md overflow-hidden sm:h-20 relative">
                               <Image
                                 src={residentialImage}
@@ -330,11 +360,20 @@ const MaterialSelectionPage = ({ setStep }) => {
                                 className="w-full h-full object-cover sm:h-[100px]"
                               />
                               <Image
-                                src={tickIcon}
+                                src={
+                                  checkedItems.includes(value.id)
+                                    ? tickIconChecked
+                                    : tickIcon
+                                }
                                 width={35}
                                 height={35}
-                                alt={`Material ${value}`} // Use the number in the alt text
-                                className=" absolute top-[3px] right-0"
+                                alt={`Material ${value}`}
+                                className={`absolute top-[3px] right-0 
+                                ${
+                                  checkedItems.includes(value.id)
+                                    ? "bg-[#21254A] bg-opacity-100 text-transparent px-[7px] py-[7px] rounded-[20px]"
+                                    : ""
+                                }`}
                               />
                             </div>
                             <div className="bg-[#EFEFEF] text-sm text-[#2f2f2f] uppercase">

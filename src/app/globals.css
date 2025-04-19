@@ -800,3 +800,37 @@ input[type="range"]::-webkit-slider-thumb {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+@keyframes fadeCycle {
+  0%,
+  33.333% {
+    opacity: 1;
+    z-index: 1;
+  }
+  33.334%,
+  100% {
+    opacity: 0;
+    z-index: 0;
+  }
+}
+
+.image-fade {
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.fade-1 {
+  animation-name: fadeCycle;
+  animation-delay: 0s;
+}
+
+.fade-2 {
+  animation-name: fadeCycle;
+  animation-delay: 1s;
+}
+
+.fade-3 {
+  animation-name: fadeCycle;
+  animation-delay: 2s;
+}

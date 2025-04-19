@@ -66,7 +66,7 @@ const UserHeader = () => {
 
       {/* Chat Box */}
       {isChatOpen && (
-        <div className="fixed bottom-10 right-10 w-[50vw] h-[100vh] bg-[#e6e6e6] rounded-3xl shadow-2xl z-[1000] flex flex-col overflow-hidden">
+        <div className="fixed bottom-0 right-0 w-[50vw] h-[100vh] bg-[#e6e6e6] rounded-3xl shadow-2xl z-[1000] flex flex-col overflow-hidden">
           {/* Header */}
           <div className="flex items-center justify-between px-5 py-3 bg-white border-b font-semibold text-black text-center">
             <div className="flex items-center gap-3">
