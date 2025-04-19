@@ -147,7 +147,7 @@ const MaterialSelectionPage = ({ setStep }) => {
   const [design, setDesign] = useState(null);
   const [checkedItems, setCheckedItems] = useState([]);
   const [selectedOption, setSelectedOption] = useState(0);
-  const [selectedMaterial, setSelectedMaterial] = useState(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
   // numbers for testing
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -336,6 +336,29 @@ const MaterialSelectionPage = ({ setStep }) => {
               </div>
               {/* TABS END */}
 
+              {selectedImageIndex && (
+                <div className="mt-4 p-4 border border-gray-300 rounded-xl bg-white shadow-lg flex gap-4 items-center max-w-md mx-auto">
+                  <Image
+                    src={selectedImageIndex.image}
+                    alt={selectedImageIndex.name}
+                    width={100}
+                    height={100}
+                    className="rounded-lg object-cover"
+                  />
+                  <div>
+                    <h3 className="text-lg font-semibold">
+                      {selectedImageIndex.name}
+                    </h3>
+                    <p className="text-sm text-gray-600">
+                      Vendor: {selectedImageIndex.vendor}
+                    </p>
+                    <p className="text-sm text-black font-medium">
+                      {selectedImageIndex.price}
+                    </p>
+                  </div>
+                </div>
+              )}
+
               <div className="h-full w-full md:order-first sm:order-first order-last">
                 <DesignCarouselMain slidesCount={design?.images?.length}>
                   {(design?.images ?? []).map((_, index) => {
@@ -352,6 +375,7 @@ const MaterialSelectionPage = ({ setStep }) => {
                               key={index2}
                               className="w-[150px] h-[150px] p-2 pb-4 rounded-lg cursor-pointer mb-5"
                               onClick={() => {
+                                setSelectedImageIndex(index);
                                 if (checkedItems.includes(materialId)) {
                                   setCheckedItems(
                                     checkedItems.filter(
